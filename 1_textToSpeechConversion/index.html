@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <title>Text to speech conversion</title>
+</head>
+<body>
+
+  <div class="wrapper">
+    <svg xmlns="http://www.w3.org/2000/svg" id="play" width="100" height="100" viewBox="0 0 24 24"><path d="M12,2C6.486,2,2,6.486,2,12s4.486,10,10,10s10-4.486,10-10S17.514,2,12,2z M12,20c-4.411,0-8-3.589-8-8s3.589-8,8-8 s8,3.589,8,8S16.411,20,12,20z"/><path d="M9 17L17 12 9 7z"/></svg>
+    <textarea name="text" id="text" cols="40" rows="10" placeholder="Write your text here please..."></textarea>
+    <button id="clear">Clear field</button>
+  </div>
+  
+  <script src="./script.js"></script>
+</body>
+</html>
+
+<style>
+  body {
+    background: rgb(70, 45, 80);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .wrapper {
+    text-align: center;
+  }
+
+  #play {
+    display: block;
+    margin: 0 auto;
+    font-size: 100px;
+    cursor: pointer;
+    fill: white;
+    border-radius: 50%;
+    transition: all .4s;    
+  }
+
+  #play:hover {
+    fill: rgb(36, 148, 247);
+    box-shadow: 0 0 20px rgba(255, 255, 255, .3);
+  }
+
+  #play:active {
+    color: transparent;
+    box-shadow: 0 0 160px rgba(255, 255, 255, .3);
+  }
+
+  textarea {
+    display: block;
+    font-size: 25px;
+    margin: 30px;
+    padding: 10px;
+  }
+
+  textarea:focus {
+    margin: 26px;
+    border: 5px solid #005aad;
+  }
+
+  #clear {
+    padding: 12px 10px 10px 10px;
+    color: black;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all .4s;
+    outline: none;
+  }
+  #clear:hover {
+    background-color: rgb(36, 148, 247);
+    box-shadow: 0 0 20px rgba(255, 255, 255, .3);
+  }
+  #clear:active {
+    background: rgb(0, 93, 175);
+  }
+  
+</style>
