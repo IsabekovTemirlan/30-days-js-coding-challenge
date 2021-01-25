@@ -2,4 +2,5 @@
 
 _______________________________________________
 
-1. Text to speech conversion _____ :heavy_check_mark:
+1. Text to speech conversion :heavy_check_mark:
+2. Drum kit :heavy_check_mark:

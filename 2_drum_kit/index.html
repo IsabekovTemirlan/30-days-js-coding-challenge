@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Drum Kit</title>
+</head>
+<body>
+  <div class="wrapper"></div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
+
+<style>
+
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: rgb(45, 45, 80);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  .wrapper {
+    display: flex;
+  }
+
+  .key-box {
+    width: 60px;
+    height: 60px;
+    margin: 10px;
+    padding: 20px;
+    border: 2px solid white;
+    border-radius: 15px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .4s;
+  }
+
+  .key-box h1 {
+    margin: 0;
+    color: white;
+    font-family:'Lucida Sans', sans-serif;
+  }
+
+  .down {
+    box-shadow: 0 0 10px rgba(255, 255, 255, .4);
+  }
+
+  .onpress {
+    animation: light 1.6s;
+  }
+
+  @keyframes light {
+    0% {
+      box-shadow: 0 0 10px rgba(255, 255, 255, .4);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(255, 255, 255, .4);
+    }
+    100% {
+      box-shadow: none;
+    }
+  }
+
+</style>
