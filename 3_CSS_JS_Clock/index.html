@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS + JS Clock</title>
+</head>
+
+<body>
+  <div class="clock">
+    <div class="center"></div>
+    <span id="c-12">12</span>
+    <span id="c-6">6</span>
+    <span id="c-3">3</span>
+    <span id="c-9">9</span>
+    <span id="c-1">1</span>
+    <span id="c-11">11</span>
+    <span id="c-5">5</span>
+    <span id="c-7">7</span>
+    <span id="c-2">2</span>
+    <span id="c-4">4</span>
+    <span id="c-8">8</span>
+    <span id="c-10">10</span>
+
+    <div id="arrow" class="seconds">
+      <div class="s-1"></div>
+    </div>
+    <div id="arrow" class="minutes">
+      <div class="m-1"></div>
+    </div>
+    <div id="arrow" class="hours">
+      <div class="h-1"></div>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: rgb(102, 41, 94);
+  }
+
+  .clock {
+    width: 600px;
+    height: 600px;
+    border: 10px solid white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: all 1s;
+  }
+
+  .center {
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 50%;
+    z-index: 1000;
+  }
+
+  span {
+    position: absolute;
+    font-size: 60px;
+    font-family: sans-serif;
+    color: white;
+  }
+
+  #c-12 {
+    top: 0;
+  }
+
+  #c-6 {
+    bottom: 0;
+  }
+
+  #c-3 {
+    right: 10px;
+  }
+
+  #c-9 {
+    left: 10px;
+  }
+
+  #c-1 {
+    top: 50px;
+    right: 130px;
+  }
+
+  #c-11 {
+    top: 50px;
+    left: 120px;
+  }
+
+  #c-5 {
+    bottom: 40px;
+    right: 140px;
+  }
+
+  #c-7 {
+    bottom: 40px;
+    left: 140px;
+  }
+
+  #c-2 {
+    right: 40px;
+    top: 150px;
+  }
+
+  #c-4 {
+    right: 45px;
+    bottom: 135px;
+  }
+
+  #c-10 {
+    left: 40px;
+    top: 150px;
+  }
+
+  #c-8 {
+    left: 50px;
+    bottom: 135px;
+  }
+
+  .seconds {
+    width: 6px;
+    height: 480px;
+    position: absolute;
+  }
+
+  .s-1 {
+    background: white;
+    height: 50%;
+    width: 6px;
+    border-radius: 10px;
+  }
+
+  .minutes {
+    height: 390px;
+    width: 8px;
+    position: absolute;
+  }
+
+  .m-1 {
+    background: white;
+    height: 50%;
+    width: 8px;
+    border-radius: 10px;
+  }
+
+  .hours {
+    height: 300px;
+    width: 12px;
+    position: absolute;
+  }
+
+  .h-1 {
+    background: white;
+    height: 50%;
+    width: 12px;
+    border-radius: 10px;
+  }
+</style>
