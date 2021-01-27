@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="./style.css">
   <title>Text to speech conversion</title>
 </head>
 <body>
@@ -17,72 +18,3 @@
   <script src="./script.js"></script>
 </body>
 </html>
-
-<style>
-  body {
-    background: rgb(70, 45, 80);
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-
-  .wrapper {
-    text-align: center;
-  }
-
-  #play {
-    display: block;
-    margin: 0 auto;
-    font-size: 100px;
-    cursor: pointer;
-    fill: white;
-    border-radius: 50%;
-    transition: all .4s;    
-  }
-
-  #play:hover {
-    fill: rgb(36, 148, 247);
-    box-shadow: 0 0 20px rgba(255, 255, 255, .3);
-  }
-
-  #play:active {
-    color: transparent;
-    box-shadow: 0 0 160px rgba(255, 255, 255, .3);
-  }
-
-  textarea {
-    display: block;
-    font-size: 25px;
-    margin: 30px;
-    padding: 10px;
-  }
-
-  textarea:focus {
-    margin: 26px;
-    border: 5px solid #005aad;
-  }
-
-  #clear {
-    padding: 12px 10px 10px 10px;
-    color: black;
-    font-weight: bold;
-    text-transform: uppercase;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: all .4s;
-    outline: none;
-  }
-  #clear:hover {
-    background-color: rgb(36, 148, 247);
-    box-shadow: 0 0 20px rgba(255, 255, 255, .3);
-  }
-  #clear:active {
-    background: rgb(0, 93, 175);
-  }
-  
-</style>

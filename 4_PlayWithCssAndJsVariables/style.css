@@ -1,0 +1,38 @@
+:root {
+  --color: #ffffff;
+  --size: 0;
+  --blur: 0;
+}
+
+body {
+  width: 1200px;
+  margin: 0 auto;
+  background-color: rgb(45, 30, 88);
+  box-sizing: border-box;
+  text-align: center;
+}
+.handler {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.handler label {
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  font-family:'Trebuchet MS', 'sans-serif';
+}
+.handler input {
+  margin: 10px 40px 0 10px;
+  cursor: pointer;
+}
+
+img {
+  width: 500px;
+  height: auto;
+  background: var(--color);
+  padding: var(--size);
+  filter: blur(var(--blur));
+  transition: all .2s;
+}
