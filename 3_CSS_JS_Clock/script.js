@@ -5,8 +5,8 @@ let seconds = date.getSeconds(), minutes = date.getMinutes(), hours = date.getHo
 const start = (s, m, h) => {
   const secStep = 1, minStep = 6, hourStep = 30 // arrow step
   const setStep = (elms, deg) => elms.forEach((el, i) => el.style.transform = `rotate(${deg[i]}deg)`) // change position of the arrow
-  m = m * 6 // stabilize the minutes
-  h = h >= 12 ? (h - 12) * 30 : h * 30 // stabilize the hours
+  m = m * minStep // stabilize the minutes
+  h = h >= 12 ? (h - 12) * hourStep : h * hourStep // stabilize the hours
 
   const startHandler = () => {
     setStep(arrows, [s, m, h])
