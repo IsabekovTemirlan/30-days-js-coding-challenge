@@ -1,4 +1,4 @@
-## Welcome, this is 30 days coding challenge in JS.
+## Welcome, this is JS, CSS and HTML challenge.
 
 _______________________________________________
 
