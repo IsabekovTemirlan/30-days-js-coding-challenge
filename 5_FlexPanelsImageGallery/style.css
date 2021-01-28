@@ -1,0 +1,40 @@
+body {
+  display: flex;
+  height: 100vh;
+  margin: 0;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.card {
+  width: 25%;
+  overflow: hidden;
+  transition: all .4s;
+  cursor: pointer;
+  opacity: 0.9;
+  position: relative;
+}
+
+img {
+  height: 100%;
+}
+
+.card:hover {
+  opacity: 1;
+}
+
+.card:active {
+  opacity: .6;
+}
+
+h3 {
+  position: absolute;
+  top: 30vh;
+  left: 20%;
+  line-height: 1.1;
+  color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  font-size: 50px;
+  text-shadow: 10px 10px 15px black;
+}
