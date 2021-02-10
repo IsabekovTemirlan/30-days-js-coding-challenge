@@ -9,3 +9,4 @@ _______________________________________________
 5. Flex panel image gallery :heavy_check_mark:
 6. Life Search :heavy_check_mark:
 7. Image Upload to FireBase :heavy_check_mark:
+8. Control With JavaScript :heavy_check_mark:

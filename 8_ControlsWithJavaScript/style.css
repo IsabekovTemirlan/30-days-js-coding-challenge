@@ -1,0 +1,63 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  background: #06020f;
+  position: relative;
+  cursor: none;
+  overflow: hidden;
+}
+
+body h1 {
+  color: rgba(255, 255, 255, .2);
+  font-size: 70px;
+  text-align: center;
+  font-weight: bold;
+  font-family: monospace;
+}
+
+.control {
+  display: flex;
+  position: absolute;
+  /* left: calc(50% - 120px);
+  top: calc(50vh - 40px); */
+}
+
+.control-box {
+  width: 70px;
+  height: 70px;
+  background: rgba(255, 255, 255, .1);
+  border-radius: 2px;
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 15px rgba(255, 255, 255, .1);
+}
+
+.control-box-arrow {
+  position: absolute;
+  border: 30px solid transparent;
+  transition: all .2s;
+}
+
+.control-box-arrow.ArrowLeft{
+  border-right: 30px solid white;
+  left: -10px;
+}
+
+.control-box-arrow.ArrowRight{
+  border-left: 30px solid white;
+  right: -10px;
+}
+
+.control-box-arrow.ArrowUp{
+  border-bottom: 30px solid white;
+  top: -22px;
+}
+
+.control-box-arrow.ArrowDown{
+  border-top: 30px solid white;
+  bottom: -22px;
+}
