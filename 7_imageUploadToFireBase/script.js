@@ -9,7 +9,7 @@ function shortName(str) {
   const split = str.split('.')
   let filename = split[0]
   if (str.length > 6) { filename = filename.substring(0, 6); }
-  return filename + '.' + split[1]
+  return `${filename}...${filename[filename.length - 1]}.${split[1]}`
 }
 
 function element(tag, classes = [], content) {
@@ -19,25 +19,24 @@ function element(tag, classes = [], content) {
   return node
 }
 
+const rewriteInfo = el => {
+  el.style.bottom = 0
+  el.innerHTML = '<div class="preview-info-progress"></div>'
+}
+
+const $ = selector => document.querySelector(selector)
+
 class Upload {
   constructor(selector, options = {}) {
-    this.input = document.querySelector(selector)
     this.options = options
     this.files = []
+    this.input = $(selector)
+    this.preview = $(".preview")
+    this.open = $("#open")
+    this.upload = $('#upload')
 
-    this.preview = element('div', ['preview'])
-    this.open = element('button', ['btn'], 'Select')
-    this.upload = element('button', ['btn', 'primary'], 'Upload')
-
-    if (this.options.multi) this.input.setAttribute('multiple', true)
-    if (this.options.formats && Array.isArray(this.options.formats)) {
-      this.input.setAttribute('accept', this.options.formats.join(','))
-    }
-    this.upload.style.display = 'none'
-
-    this.input.insertAdjacentElement('afterend', this.preview)
-    this.input.insertAdjacentElement('afterend', this.upload)
-    this.input.insertAdjacentElement('afterend', this.open)
+    if (this.options.multi) { this.input.setAttribute('multiple', true) }
+    if (Array.isArray(this.options.formats)) { this.input.setAttribute('accept', this.options.formats.join(',')) }
 
     this.open.onclick = () => this.openHandler()
     this.preview.onclick = e => this.removeHandler(e)
@@ -87,13 +86,23 @@ class Upload {
     setTimeout(() => block.remove(), 300)
   }
 
-  uploadHandler(e) {
-    console.log(this.files)
+  uploadHandler() {
+    this.preview.querySelectorAll('.preview-remove').forEach( e => e.remove())
+    const previewInfo = this.preview.querySelectorAll('.preview-info')
+    previewInfo.forEach(rewriteInfo)
+
+    this.preview.querySelectorAll('.preview-info-progress').forEach(el => setInterval(() => el.style.width = "100%", 1000))
+    this.files = []
+    
+    setInterval(() => {
+      this.preview.innerHTML = ''
+      this.upload.style.display = 'none'
+    }, 3000)
   }
 }
 
 
-const upload = new Upload('#file', {
+new Upload('#file', {
   multi: true,
   formats: ['.jpg', '.jpeg', '.png']
 });

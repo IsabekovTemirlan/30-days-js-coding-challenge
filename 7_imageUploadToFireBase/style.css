@@ -56,6 +56,7 @@ input[type=file] {
   position: relative;
   overflow: hidden;
   transition: all .3s;
+  border-radius: 3px;
 }
 
 .preview-image img{
@@ -81,7 +82,8 @@ input[type=file] {
   top: 0;
   font-weight: bold;
   cursor: pointer;
-  background: rgba(255, 255, 255, 0.6);
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -98,7 +100,8 @@ input[type=file] {
   left: 0;
   bottom: -30px;
   font-size: 14px;
-  background: rgba(255, 255, 255, 0.6);
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
   transition: bottom .4s;
   padding: 0 5px;
 }
@@ -106,4 +109,19 @@ input[type=file] {
 .preview-image.removing {
   transform: scale(0);
   transition: transform .3s;
+}
+
+#upload {
+  display: none;
+}
+
+.preview-info-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  top: 0;
+  width: 0;
+  text-align: center;
+  transition: all 1s;
+  background: rgb(61, 255, 120);
 }
