@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+$selectHeight: 50px;
+
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(59, 23, 68);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  color: white;
+}
+
+.select {
+  width: 500px;
+  margin: 150px auto 0 auto;
+  border: 1px solid white;
+  border-radius: 10px;
+  overflow: hidden;
+  user-select:none;
+  transition: ease-in .2s;
+  
+  &__box {
+    height: $selectHeight;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    // border-top-left-radius: 10px;
+    // border-top-right-radius: 10px;
+
+    svg {
+      cursor: pointer;
+    }
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.02);
+    } 
+  }
+
+  &__dropdown {
+    // border-top: 1px solid rgb(139, 139, 139);
+    // border: 1px solid white;
+    // border-bottom-left-radius: 10px;
+    // border-bottom-right-radius: 10px;
+  }
+
+  &__item {
+    height: $selectHeight;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+
+    & span {
+      padding-left: 10px;
+    }
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.02);
+    } 
+  }
+}
+
+.enter {
+  animation: enterInPage .6s ease-in-out;
+}
+
+@keyframes enterInPage {
+  0% {
+    opacity: 0;
+    margin-top: -1000px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0;
+  }
+}

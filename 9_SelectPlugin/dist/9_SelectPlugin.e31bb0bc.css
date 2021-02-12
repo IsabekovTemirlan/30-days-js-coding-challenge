@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #3b1744;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  color: white;
+}
+
+.select {
+  width: 500px;
+  margin: 150px auto 0 auto;
+  border: 1px solid white;
+  border-radius: 10px;
+  overflow: hidden;
+  user-select: none;
+  transition: ease-in 0.2s;
+}
+.select__box {
+  height: 50px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.select__box svg {
+  cursor: pointer;
+}
+.select__box:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+.select__item {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.select__item span {
+  padding-left: 10px;
+}
+.select__item:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.enter {
+  animation: enterInPage 0.6s ease-in-out;
+}
+
+@keyframes enterInPage {
+  0% {
+    opacity: 0;
+    margin-top: -1000px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
