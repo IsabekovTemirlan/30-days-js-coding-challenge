@@ -1,47 +1,52 @@
+import toggleBtn from "./assets/icon.svg";
+
 export class Select {
   constructor(items) {
     this.items = items
-    this.selectedItem = items[0]
+    this.curentItem = items[0]
     this.isOpen = false
     this.select = document.querySelector('.select')
-    this.select.insertAdjacentHTML('afterbegin', [generateTemplate(this.selectedItem), generateItemsContainer()].join(''))
-    this.listItems = generateItems(items, this.selectedItem)
+    this.dropdown
+    this.title
 
-    this.close = document.querySelector('#close')
-    this.close.onclick = this.open.bind(this)
+    this.select.onclick = this.toggle.bind(this)
   }
 
-  init() {    
-    this.itemsContainer = document.querySelector('.select__dropdown')
-    this.itemsContainer.insertAdjacentHTML('beforeend', this.listItems.join(''))
+  init() {
+    this.select.insertAdjacentHTML('afterbegin', generateTemplate(this.curentItem))
+    this.title = this.select.childNodes[0].childNodes[1]
+    this.dropdown = document.querySelector('.select__dropdown')
+    this.dropdown.innerHTML = itemList(this.items, this.curentItem).join('')
   }
 
-  open() {
+  toggle({ target: { classList, textContent } }) {
+    if (classList[0] === "select__item") {
+      this.selectItem(textContent)
+      this.title.textContent = textContent
+    }
     this.isOpen = !this.isOpen
-    this.itemsContainer.style.display = this.isOpen ? 'none' : 'block'
+    this.dropdown.style.display = this.isOpen ? "block" : "none"
   }
 
-  close() {}
-
-  selectById(id) {}
-
-  destroy() {}
+  selectItem(value) {
+    this.curentItem = value
+    this.dropdown.innerHTML = itemList(this.items, this.curentItem).join('')
+  }
 }
 
 function generateTemplate(selectedItem) {
   return `<div class="select__box">
             <span>${selectedItem}</span>
-            <svg id="close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgb(255, 255, 255);transform:-ms-filter;"><path d="M12,2C6.486,2,2,6.486,2,12s4.486,10,10,10c5.514,0,10-4.486,10-10S17.514,2,12,2z M12,20c-4.411,0-8-3.589-8-8 s3.589-8,8-8s8,3.589,8,8S16.411,20,12,20z"></path><path d="M12 13.586L7.707 9.293 6.293 10.707 12 16.414 17.707 10.707 16.293 9.293z"></path></svg>
-          </div>`
+            <img id="close" src="${toggleBtn}" alt="" />
+          </div>
+          <div class="select__dropdown"></div>
+          `
 }
 
-function generateItemsContainer() {
-  return `<div class="select__dropdown"></div>`
-}
 
-function generateItems(itemTextArr, curentItem) {
-  return itemTextArr.map( item => {
+function itemList(itemTextArr, curentItem) {
+  return itemTextArr.map(item => {
     if (item === curentItem) return;
-    return `<div class="select__item enter"><span>${item}</span></div>`
+    return `<div class="select__item"><span>${item}</span></div>`
   })
 }

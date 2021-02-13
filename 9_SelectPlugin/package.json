@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "start": "parcel index.html"
+  },
   "devDependencies": {
     "sass": "^1.32.7"
   }

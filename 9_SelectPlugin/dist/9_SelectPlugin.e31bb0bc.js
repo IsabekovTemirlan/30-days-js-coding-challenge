@@ -117,13 +117,19 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"select.js":[function(require,module,exports) {
+})({"assets/icon.svg":[function(require,module,exports) {
+module.exports = "/icon.829cbb25.svg";
+},{}],"select.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.Select = void 0;
+
+var _icon = _interopRequireDefault(require("./assets/icon.svg"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -136,36 +142,43 @@ var Select = /*#__PURE__*/function () {
     _classCallCheck(this, Select);
 
     this.items = items;
-    this.selectedItem = items[0];
+    this.curentItem = items[0];
     this.isOpen = false;
     this.select = document.querySelector('.select');
-    this.select.insertAdjacentHTML('afterbegin', [generateTemplate(this.selectedItem), generateItemsContainer()].join(''));
-    this.listItems = generateItems(items, this.selectedItem);
-    this.close = document.querySelector('#close');
-    this.close.onclick = this.open.bind(this);
+    this.dropdown;
+    this.title;
+    this.select.onclick = this.toggle.bind(this);
   }
 
   _createClass(Select, [{
     key: "init",
     value: function init() {
-      this.itemsContainer = document.querySelector('.select__dropdown');
-      this.itemsContainer.insertAdjacentHTML('beforeend', this.listItems.join(''));
+      this.select.insertAdjacentHTML('afterbegin', generateTemplate(this.curentItem));
+      this.title = this.select.childNodes[0].childNodes[1];
+      this.dropdown = document.querySelector('.select__dropdown');
+      this.dropdown.innerHTML = itemList(this.items, this.curentItem).join('');
     }
   }, {
-    key: "open",
-    value: function open() {
+    key: "toggle",
+    value: function toggle(_ref) {
+      var _ref$target = _ref.target,
+          classList = _ref$target.classList,
+          textContent = _ref$target.textContent;
+
+      if (classList[0] === "select__item") {
+        this.selectItem(textContent);
+        this.title.textContent = textContent;
+      }
+
       this.isOpen = !this.isOpen;
-      this.itemsContainer.style.display = this.isOpen ? 'none' : 'block';
+      this.dropdown.style.display = this.isOpen ? "block" : "none";
     }
   }, {
-    key: "close",
-    value: function close() {}
-  }, {
-    key: "selectById",
-    value: function selectById(id) {}
-  }, {
-    key: "destroy",
-    value: function destroy() {}
+    key: "selectItem",
+    value: function selectItem(value) {
+      this.curentItem = value;
+      this.dropdown.innerHTML = itemList(this.items, this.curentItem).join('');
+    }
   }]);
 
   return Select;
@@ -174,20 +187,16 @@ var Select = /*#__PURE__*/function () {
 exports.Select = Select;
 
 function generateTemplate(selectedItem) {
-  return "<div class=\"select__box\">\n            <span>".concat(selectedItem, "</span>\n            <svg id=\"close\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" style=\"fill:rgb(255, 255, 255);transform:-ms-filter;\"><path d=\"M12,2C6.486,2,2,6.486,2,12s4.486,10,10,10c5.514,0,10-4.486,10-10S17.514,2,12,2z M12,20c-4.411,0-8-3.589-8-8 s3.589-8,8-8s8,3.589,8,8S16.411,20,12,20z\"></path><path d=\"M12 13.586L7.707 9.293 6.293 10.707 12 16.414 17.707 10.707 16.293 9.293z\"></path></svg>\n          </div>");
+  return "<div class=\"select__box\">\n            <span>".concat(selectedItem, "</span>\n            <img id=\"close\" src=\"").concat(_icon.default, "\" alt=\"\" />\n          </div>\n          <div class=\"select__dropdown\"></div>\n          ");
 }
 
-function generateItemsContainer() {
-  return "<div class=\"select__dropdown\"></div>";
-}
-
-function generateItems(itemTextArr, curentItem) {
+function itemList(itemTextArr, curentItem) {
   return itemTextArr.map(function (item) {
     if (item === curentItem) return;
-    return "<div class=\"select__item enter\"><span>".concat(item, "</span></div>");
+    return "<div class=\"select__item\"><span>".concat(item, "</span></div>");
   });
 }
-},{}],"../../../Users/Tima/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"./assets/icon.svg":"assets/icon.svg"}],"../../../Users/Tima/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -266,9 +275,8 @@ var _select = require("./select.js");
 
 require("./style.scss");
 
-var list = ['Apple', 'Melon', 'Mango', 'Banana'];
-var select = new _select.Select(list);
-select.init();
+var list = ['Apple', 'Melon', 'Mango', 'Banana', 'Watermalon'];
+new _select.Select(list).init();
 },{"./select.js":"select.js","./style.scss":"style.scss"}],"../../../Users/Tima/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -297,7 +305,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52844" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57386" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -474,3 +482,4 @@ function hmrAcceptRun(bundle, id) {
   }
 }
 },{}]},{},["../../../Users/Tima/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
+//# sourceMappingURL=/9_SelectPlugin.e31bb0bc.js.map
