@@ -11,3 +11,4 @@ _______________________________________________
 6. Life Search :heavy_check_mark:
 7. Image Upload :heavy_check_mark:
 8. Control With JavaScript :heavy_check_mark:
+9. Select Plugin :heavy_check_mark:
